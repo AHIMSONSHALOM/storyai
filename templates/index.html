@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>StoryForge AI - Turn Your Ideas Into Stories</title>
+  <meta name="description" content="StoryForge AI is an AI-powered story generator creating unique, engaging stories from your simple ideas.">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <a href="/" class="nav-brand">
+      <span class="brand-icon">✨</span>
+      <span class="brand-text">StoryForge AI</span>
+    </a>
+    <div class="nav-links">
+      <a href="/login" class="nav-link">Login</a>
+      <a href="/register" class="btn btn-primary btn-sm">Get Started</a>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <div class="container">
+    <section class="hero">
+      <h1 class="hero-title">Turn Your Ideas<br>Into Stories</h1>
+      <p class="hero-subtitle">
+        Create unique AI-powered stories from a simple idea. Select genre, mood, language, and length to generate captivating narratives instantly.
+      </p>
+      <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+        <a href="/register" class="btn btn-primary">✨ Get Started Free</a>
+        <a href="/login" class="btn btn-outline">Login to Account</a>
+      </div>
+    </section>
+
+    <!-- Features Highlights -->
+    <section style="margin-top: 3rem;">
+      <h2 style="text-align: center; font-family: var(--font-heading); font-size: 2rem; color: #fff; margin-bottom: 2rem;">
+        Everything You Need to Forge Stories
+      </h2>
+      <div class="features-grid">
+        <div class="feature-card">
+          <span class="feature-icon">🤖</span>
+          <h3 class="feature-title">AI Story Generation</h3>
+          <p class="feature-desc">Powered by Google Gemini AI to transform your raw story ideas into rich, structured narrative masterpieces.</p>
+        </div>
+        <div class="feature-card">
+          <span class="feature-icon">🎭</span>
+          <h3 class="feature-title">Multiple Genres</h3>
+          <p class="feature-desc">Choose from Adventure, Fantasy, Mystery, Romance, Horror, Comedy, Science Fiction, or Drama.</p>
+        </div>
+        <div class="feature-card">
+          <span class="feature-icon">🎨</span>
+          <h3 class="feature-title">Multiple Moods</h3>
+          <p class="feature-desc">Tailor tone with Happy, Emotional, Suspenseful, Dark, Inspirational, Funny, Peaceful, or Mysterious atmospheres.</p>
+        </div>
+        <div class="feature-card">
+          <span class="feature-icon">🌐</span>
+          <h3 class="feature-title">Bilingual Generation</h3>
+          <p class="feature-desc">Full native support to generate original story titles and content in both English and Tamil.</p>
+        </div>
+        <div class="feature-card">
+          <span class="feature-icon">📚</span>
+          <h3 class="feature-title">Story History</h3>
+          <p class="feature-desc">Safely store all generated stories in your personal database history to read or delete anytime.</p>
+        </div>
+        <div class="feature-card">
+          <span class="feature-icon">🔒</span>
+          <h3 class="feature-title">Secure Authentication</h3>
+          <p class="feature-desc">Enterprise-grade user authentication and data privacy powered by Supabase PostgreSQL RLS.</p>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2026 StoryForge AI. All rights reserved. | Turn Your Ideas Into Stories.</p>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard - StoryForge AI</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <a href="/dashboard" class="nav-brand">
+      <span class="brand-icon">✨</span>
+      <span class="brand-text">StoryForge AI</span>
+    </a>
+    <div class="nav-links">
+      <a href="/dashboard" class="nav-link active">Dashboard</a>
+      <a href="#my-stories" class="nav-link">My Stories</a>
+      <div id="userBadge" class="user-badge">User</div>
+      <button id="logoutBtn" class="btn btn-outline btn-sm">Logout</button>
+    </div>
+  </nav>
+
+  <!-- Main Container -->
+  <div class="container">
+
+    <div id="alertBox" class="alert"></div>
+
+    <!-- Story Generator Card -->
+    <div class="card">
+      <div class="card-header" style="text-align: left;">
+        <h1 class="card-title">Create Your Story</h1>
+        <p class="card-subtitle">Enter an idea and choose preferences to generate a unique story</p>
+      </div>
+
+      <form id="storyForm">
+        <div class="form-group">
+          <label for="storyIdea" class="form-label">Story Idea</label>
+          <textarea id="storyIdea" class="form-control" placeholder="e.g. A young student discovers an abandoned railway station where time moves differently." required></textarea>
+        </div>
+
+        <div class="form-grid">
+          <div class="form-group">
+            <label for="genre" class="form-label">Genre</label>
+            <select id="genre" class="form-select">
+              <option value="Adventure">Adventure</option>
+              <option value="Fantasy">Fantasy</option>
+              <option value="Mystery" selected>Mystery</option>
+              <option value="Romance">Romance</option>
+              <option value="Horror">Horror</option>
+              <option value="Comedy">Comedy</option>
+              <option value="Science Fiction">Science Fiction</option>
+              <option value="Drama">Drama</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="mood" class="form-label">Mood</label>
+            <select id="mood" class="form-select">
+              <option value="Happy">Happy</option>
+              <option value="Emotional">Emotional</option>
+              <option value="Suspenseful" selected>Suspenseful</option>
+              <option value="Dark">Dark</option>
+              <option value="Inspirational">Inspirational</option>
+              <option value="Funny">Funny</option>
+              <option value="Peaceful">Peaceful</option>
+              <option value="Mysterious">Mysterious</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="language" class="form-label">Language</label>
+            <select id="language" class="form-select">
+              <option value="English" selected>English</option>
+              <option value="Tamil">Tamil</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="length" class="form-label">Length</label>
+            <select id="length" class="form-select">
+              <option value="Short" selected>Short</option>
+              <option value="Medium">Medium</option>
+              <option value="Long">Long</option>
+            </select>
+          </div>
+        </div>
+
+        <button type="submit" id="generateBtn" class="btn btn-primary" style="width: 100%;">
+          ✨ Generate Story
+        </button>
+      </form>
+    </div>
+
+    <!-- Generated Story Display Card -->
+    <div id="storyResultCard" class="story-result-card">
+      <h2 id="resultTitle" class="story-title">Story Title</h2>
+      <div id="resultContent" class="story-content">Story content will appear here...</div>
+      <div class="story-actions">
+        <button id="copyBtn" class="btn btn-primary">📋 Copy Story</button>
+      </div>
+    </div>
+
+    <!-- My Stories History Section -->
+    <section id="my-stories" style="margin-top: 4rem;">
+      <h2 class="section-title">
+        <span>📚 My Stories</span>
+      </h2>
+
+      <div id="emptyState" class="empty-state" style="display: none;">
+        <span class="empty-state-icon">📖</span>
+        <h3 style="font-family: var(--font-heading); color: #fff; margin-bottom: 0.5rem;">No stories yet.</h3>
+        <p>Create your first AI story above.</p>
+      </div>
+
+      <div id="storiesContainer" class="stories-grid">
+        <!-- Story cards will be dynamically rendered here -->
+      </div>
+    </section>
+
+  </div>
+
+  <!-- Story Reader Modal -->
+  <div id="storyModal" class="modal-overlay">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 id="modalTitle" style="font-family: var(--font-heading); font-size: 1.4rem; color: #fff;">Story Title</h3>
+        <button class="close-btn close-modal">&times;</button>
+      </div>
+      <div id="modalBody" class="modal-body">
+        Full story content...
+      </div>
+      <div class="modal-footer">
+        <button id="modalCopyBtn" class="btn btn-primary btn-sm">Copy Story</button>
+        <button class="btn btn-outline btn-sm close-modal">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2026 StoryForge AI. All rights reserved.</p>
+  </footer>
+
+  <!-- Pass Flask environment variables safely to browser -->
+  <script>
+    window.SUPABASE_URL = "{{ supabase_url }}";
+    window.SUPABASE_ANON_KEY = "{{ supabase_anon_key }}";
+  </script>
+
+  <!-- Supabase JS CDN & Application Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="{{ url_for('static', filename='js/config.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/auth.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/dashboard.js') }}"></script>
+</body>
+</html>
